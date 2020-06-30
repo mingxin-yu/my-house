@@ -7,21 +7,19 @@ import { catchError, map } from 'rxjs/operators';
 import { Room } from './Room';
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class RoomService {
-
-  private roomsUrl = 'api/rooms';  // URL to web api
-
+  // URL to web api
+  private static ROOMS_URL = 'api/rooms';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient) {}
 
-  /** GET rooms from the server */
   getRooms(): Observable<Room[]> {
-    return this.http.get<Room[]>(this.roomsUrl)
+    return this.http.get<Room[]>(RoomService.ROOMS_URL)
       .pipe(
         catchError(this.handleError<Room[]>('getRooms', []))
       );
@@ -29,55 +27,39 @@ export class RoomService {
 
   /** GET room by id. Return `undefined` when id not found */
   getRoomNo404<Data>(id: number): Observable<Room> {
-    const url = `${this.roomsUrl}/?id=${id}`;
+    const url = `${RoomService.ROOMS_URL}/?id=${id}`;
     return this.http.get<Room[]>(url)
       .pipe(
-        map(rooms => rooms[0]), // returns a {0|1} element array
+        // returns a {0|1} element array
+        map(rooms => rooms[0]),
         catchError(this.handleError<Room>(`getRoom id=${id}`))
       );
   }
 
   /** GET room by id. Will 404 if id not found */
   getRoom(id: number): Observable<Room> {
-    const url = `${this.roomsUrl}/${id}`;
+    const url = `${RoomService.ROOMS_URL}/${id}`;
     return this.http.get<Room>(url).pipe(
       catchError(this.handleError<Room>(`getRoom id=${id}`))
     );
   }
 
-  /* GET rooms whose name contains search term */
-  searchRooms(term: string): Observable<Room[]> {
-    if (!term.trim()) {
-      // if not search term, return empty room array.
-      return of([]);
-    }
-    return this.http.get<Room[]>(`${this.roomsUrl}/?name=${term}`).pipe(
-      catchError(this.handleError<Room[]>('searchRooms', []))
-    );
-  }
-
-  //////// Save methods //////////
-
-  /** POST: add a new room to the server */
   addRoom(room: Room): Observable<Room> {
-    return this.http.post<Room>(this.roomsUrl, room, this.httpOptions).pipe(
+    return this.http.post<Room>(RoomService.ROOMS_URL, room, this.httpOptions).pipe(
       catchError(this.handleError<Room>('addRoom'))
     );
   }
 
-  /** DELETE: delete the room from the server */
-  deleteRoom(room: Room | number): Observable<Room> {
-    const id = typeof room === 'number' ? room : room.id;
-    const url = `${this.roomsUrl}/${id}`;
+  deleteRoom(id: number): Observable<Room> {
+    const url = `${RoomService.ROOMS_URL}/${id}`;
 
     return this.http.delete<Room>(url, this.httpOptions).pipe(
       catchError(this.handleError<Room>('deleteRoom'))
     );
   }
 
-  /** PUT: update the room on the server */
   updateRoom(room: Room): Observable<any> {
-    return this.http.put(this.roomsUrl, room, this.httpOptions).pipe(
+    return this.http.put(RoomService.ROOMS_URL, room, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateRoom'))
     );
   }
@@ -92,7 +74,7 @@ export class RoomService {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(error);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
