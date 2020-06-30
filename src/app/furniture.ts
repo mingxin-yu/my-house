@@ -1,5 +1,5 @@
 export interface Furniture {
-  furnitureId: number;
+  id: number;
   roomId: number;
   name: string;
 }
