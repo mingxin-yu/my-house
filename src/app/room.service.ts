@@ -50,7 +50,7 @@ export class RoomService {
     );
   }
 
-  deleteRoom(id: Room): Observable<Room> {
+  deleteRoom(id: number): Observable<Room> {
     const url = `${RoomService.ROOMS_URL}/${id}`;
 
     return this.http.delete<Room>(url, this.httpOptions).pipe(
