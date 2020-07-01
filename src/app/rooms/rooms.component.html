@@ -1,0 +1,8 @@
+<h2>All Rooms</h2>
+<ul class="rooms">
+  <li *ngFor="let room of rooms">
+    <a routerLink="/detail/{{room.id}}">
+      <span class="badge">{{room.id}}</span> {{room.name}}
+    </a>
+  </li>
+</ul>
