@@ -7,7 +7,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomCreateComponent } from './room-create/room-create.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
