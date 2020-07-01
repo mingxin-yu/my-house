@@ -3,9 +3,8 @@ import { Room } from '../room';
 import { RoomService } from '../room.service';
 
 /**
- * This component gives you a overview of each room with it's id.
- * It supports the functionality of navigating to each detailed view of each room
- * after clicking on it.
+ * Display the overview of each room with it's id.
+ * Support the functionality of navigating to detailed view of each room after clicking.
  */
 @Component({
   selector: 'app-rooms',
