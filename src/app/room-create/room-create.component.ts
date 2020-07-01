@@ -8,6 +8,10 @@ import { RoomService } from '../room.service';
   styleUrls: ['./room-create.component.css']
 })
 
+/**
+ * Display a view of create room feature
+ * Take a name of a room and add to the room list
+ */
 export class RoomCreateComponent {
   constructor(private roomService: RoomService) { }
   sampleRoom = 'Living Room';
