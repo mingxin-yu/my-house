@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { Room } from './Room';
+import { Room } from './room';
 
 
 @Injectable({providedIn: 'root'})
@@ -50,7 +50,7 @@ export class RoomService {
     );
   }
 
-  deleteRoom(id: number): Observable<Room> {
+  deleteRoom(id: Room): Observable<Room> {
     const url = `${RoomService.ROOMS_URL}/${id}`;
 
     return this.http.delete<Room>(url, this.httpOptions).pipe(
