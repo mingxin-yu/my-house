@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import { Room } from '../room';
+import { RoomService } from '../room.service';
+
+@Component({
+  selector: 'app-room-create',
+  templateUrl: './room-create.component.html',
+  styleUrls: ['./room-create.component.css']
+})
+export class RoomCreateComponent implements OnInit {
+
+
+  constructor(private roomService: RoomService) { }
+
+  // TODO: Remove this when we're done
+  // get diagnostic() { return JSON.stringify(this.model); }
+  infoHold = 'Windstorm';
+  submitted = false;
+
+  ngOnInit(): void {
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.roomService.addRoom({ name } as Room);
+  }
+
+  onSubmit() { this.submitted = true; }
+}
