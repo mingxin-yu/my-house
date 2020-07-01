@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 
@@ -7,23 +7,16 @@ import { RoomService } from '../room.service';
   templateUrl: './room-create.component.html',
   styleUrls: ['./room-create.component.css']
 })
-export class RoomCreateComponent implements OnInit {
 
-
+export class RoomCreateComponent {
   constructor(private roomService: RoomService) { }
-
-  // TODO: Remove this when we're done
-  // get diagnostic() { return JSON.stringify(this.model); }
-  infoHold = 'Windstorm';
+  sampleRoom = 'Living Room';
   submitted = false;
-
-  ngOnInit(): void {
-  }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.roomService.addRoom({ name } as Room);
+    this.roomService.addRoom( {name} as Room ).subscribe();
   }
 
   onSubmit() { this.submitted = true; }

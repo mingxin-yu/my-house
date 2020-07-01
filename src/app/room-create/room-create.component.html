@@ -6,34 +6,21 @@
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name"
                required
-               [(ngModel)]="infoHold" name="name"
+               [(ngModel)]="sampleRoom" name="name"
                #name="ngModel">
         <div [hidden]="name.valid || name.pristine"
              class="alert alert-danger">
           Name is required
         </div>
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="!roomForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!roomForm.form.valid"
+              (click)="add(sampleRoom);"
+      >Submit</button>
     </form>
   </div>
-
   <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-      <div class="col-xs-3">Name</div>
-      <div class="col-xs-9">{{ infoHold }}</div>
-    </div>
-    <br>
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+    <h2>{{ sampleRoom }} been added!</h2>
   </div>
 </div>
 
-<div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
-</div>
+
