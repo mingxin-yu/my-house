@@ -17,8 +17,9 @@ import {RoomService} from '../room.service';
 export class FurnitureCreateComponent implements OnInit {
   constructor(private furnitureService: FurnitureService,
               private roomService: RoomService) {}
-  sampleFurniture = 'Chair';
-  sampleRoomId = 0;
+  Name;
+  // Set default roomId for new furniture as 0 (Not belongs to any room)
+  RoomId = 0;
   rooms: Room[];
   submitted = false;
   ngOnInit() {
