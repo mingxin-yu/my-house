@@ -1,0 +1,26 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Create Room</h1>
+    <form (ngSubmit)="onSubmit()" #roomForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="sampleRoom" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!roomForm.form.valid"
+              (click)="add(sampleRoom);"
+      >Submit</button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>{{ sampleRoom }} been added!</h2>
+  </div>
+</div>
+
+
