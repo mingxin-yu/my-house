@@ -14,7 +14,7 @@
   left: .5em;
 }
 
-.list /deep/ a {
+.list a {
   text-decoration: none;
   position: relative;
   display: block;
