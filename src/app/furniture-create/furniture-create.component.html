@@ -6,7 +6,7 @@
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name"
                required
-               [(ngModel)]="Name" name="name"
+               [(ngModel)]="furnitureName" name="name"
                #name="ngModel">
         <div [hidden]="name.valid || name.pristine"
              class="alert alert-danger">
@@ -16,16 +16,16 @@
       <div class="form-group">
         <label for="room">Assign to Room</label>
         <select class="form-control" id="room"
-                [(ngModel)]="RoomId" name="room">
+                [(ngModel)]="roomId" name="room">
           <option *ngFor="let room of rooms" [value]="room.id">{{room.name}}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-success" [disabled]="!furnitureForm.form.valid"
-              (click)="add(Name,RoomId);"
+              (click)="add(furnitureName,roomId);"
       >Submit</button>
     </form>
   </div>
   <div [hidden]="!submitted">
-    <h2>{{ Name }} been added!</h2>
+    <h2>{{ furnitureName }} been added!</h2>
   </div>
 </div>
