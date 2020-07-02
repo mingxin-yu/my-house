@@ -9,13 +9,18 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { RoomCreateComponent } from './room-create/room-create.component';
 import { FormsModule } from '@angular/forms';
 import { FurnituresComponent } from './furnitures/furnitures.component';
+import { FurnitureCreateComponent } from './furniture-create/furniture-create.component';
+import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoomsComponent,
     RoomCreateComponent,
-    FurnituresComponent
+    FurnituresComponent,
+    FurnitureCreateComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,15 @@ import { FurnituresComponent } from './furnitures/furnitures.component';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
     ),
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path: 'room_list', component: RoomsComponent},
+      {path: 'furniture_list', component: RoomCreateComponent},
+      {path: 'room_create', component: FurnituresComponent},
+      {path: 'furniture_create', component: FurnitureCreateComponent},
+      {path: '', redirectTo: '/room_list', pathMatch: 'full'},
+      {path: '**', component: PageNotFoundComponent}
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
