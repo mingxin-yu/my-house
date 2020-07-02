@@ -3,7 +3,7 @@
   <ul class="list">
     <li *ngFor="let room of rooms">
       <a routerLink="/detail/{{room.id}}">
-        <span class="form-control" style="color: #607D8B; background-color: #DDD; font-weight: bold;">
+        <span class="form-control">
           {{room.id}} {{room.name}}
         </span>
       </a>
