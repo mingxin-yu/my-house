@@ -21,7 +21,7 @@ import { FurnituresComponent } from './furnitures/furnitures.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // The HttpClientInMemgit oryWebApiModule module intercepts HTTP requests
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
