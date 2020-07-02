@@ -11,18 +11,14 @@ import { Furniture } from './furniture';
 export class FurnitureService {
   // URL to web api
   private static FURNITURES_URL = 'api/furnitures';
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  };
+  httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'}) };
 
   constructor(
     private http: HttpClient) {}
 
   getFurnitures(): Observable<Furniture[]> {
-    return this.http.get<Furniture[]>(FurnitureService.FURNITURES_URL)
-      .pipe(
-        catchError(this.handleError<Furniture[]>('getFurnitures', []))
-      );
+    return this.http.get<Furniture[]>(FurnitureService.FURNITURES_URL).pipe(
+        catchError(this.handleError<Furniture[]>('getFurnitures', [])));
   }
 
   /** GET furniture by id. Return `undefined` when id not found */
@@ -72,10 +68,8 @@ export class FurnitureService {
    */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       // TODO: send the error to remote logging infrastructure
       console.error(error);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
