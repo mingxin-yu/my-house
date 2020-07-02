@@ -1,0 +1,22 @@
+.list{
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  position: relative;
+  cursor: pointer;
+  margin: 1em;
+  border-radius: 4px;
+}
+
+.list li:hover {
+  left: .5em;
+}
+
+.list /deep/ a {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  font-weight: bold;
+}

@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>All Furnitures</h1>
+  <ul class="list">
+    <li *ngFor="let furniture of furnitures">
+      <a routerLink="/detail/{{furniture.id}}">
+        <span class="form-control">
+          {{furniture.id}} {{furniture.name}}
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
