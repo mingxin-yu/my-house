@@ -35,8 +35,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     RouterModule.forRoot([
       {path: 'room_list', component: RoomsComponent},
-      {path: 'furniture_list', component: RoomCreateComponent},
-      {path: 'room_create', component: FurnituresComponent},
+      {path: 'furniture_list', component: FurnituresComponent},
+      {path: 'room_create', component: RoomCreateComponent},
       {path: 'furniture_create', component: FurnitureCreateComponent},
       {path: '', redirectTo: '/room_list', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
