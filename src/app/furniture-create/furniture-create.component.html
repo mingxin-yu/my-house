@@ -1,0 +1,31 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Create Furniture</h1>
+    <form (ngSubmit)="onSubmit()" #furnitureForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="furnitureName" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="room">Assign to Room</label>
+        <select class="form-control" id="room"
+                [(ngModel)]="roomId" name="room">
+          <option *ngFor="let room of rooms" [value]="room.id">{{room.name}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!furnitureForm.form.valid"
+              (click)="add(furnitureName,roomId);"
+      >Submit</button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>{{ furnitureName }} been added!</h2>
+  </div>
+</div>

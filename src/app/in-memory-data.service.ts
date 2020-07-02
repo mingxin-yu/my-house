@@ -10,6 +10,7 @@ import { Furniture } from './furniture';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const rooms: Room[] = [
+      { id: 0, name: 'Not Assign' },
       { id: 1, name: 'Living Room' },
       { id: 2, name: 'Bed Room' },
     ];
