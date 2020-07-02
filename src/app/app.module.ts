@@ -12,6 +12,7 @@ import { FurnituresComponent } from './furnitures/furnitures.component';
 import { FurnitureCreateComponent } from './furniture-create/furniture-create.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RoomCreateComponent,
     FurnituresComponent,
     FurnitureCreateComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FurnitureDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,11 +36,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ),
     FormsModule,
     RouterModule.forRoot([
-      {path: 'room_list', component: RoomsComponent},
-      {path: 'furniture_list', component: FurnituresComponent},
+      {path: 'room', component: RoomsComponent},
+      {path: 'furniture', component: FurnituresComponent},
       {path: 'room_create', component: RoomCreateComponent},
       {path: 'furniture_create', component: FurnitureCreateComponent},
-      {path: '', redirectTo: '/room_list', pathMatch: 'full'},
+      {path: '', redirectTo: '/room', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
