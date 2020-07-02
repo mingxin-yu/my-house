@@ -14,7 +14,7 @@ import { RoomService } from '../room.service';
  */
 export class RoomCreateComponent {
   constructor(private roomService: RoomService) { }
-  sampleRoom = 'Living Room';
+  roomName;
   submitted = false;
 
   add(name: string): void {
