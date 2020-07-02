@@ -34,11 +34,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ),
     FormsModule,
     RouterModule.forRoot([
-      {path: 'room-list', component: RoomsComponent},
-      {path: 'furniture-list', component: RoomCreateComponent},
-      {path: 'room-create', component: FurnituresComponent},
-      {path: 'furniture-create', component: FurnitureCreateComponent},
-      {path: '', redirectTo: '/room-list', pathMatch: 'full'},
+      {path: 'room_list', component: RoomsComponent},
+      {path: 'furniture_list', component: RoomCreateComponent},
+      {path: 'room_create', component: FurnituresComponent},
+      {path: 'furniture_create', component: FurnitureCreateComponent},
+      {path: '', redirectTo: '/room_list', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
