@@ -6,7 +6,7 @@
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name"
                required
-               [(ngModel)]="sampleRoom" name="name"
+               [(ngModel)]="roomName" name="name"
                #name="ngModel">
         <div [hidden]="name.valid || name.pristine"
              class="alert alert-danger">
@@ -14,12 +14,12 @@
         </div>
       </div>
       <button type="submit" class="btn btn-success" [disabled]="!roomForm.form.valid"
-              (click)="add(sampleRoom);"
+              (click)="add(roomName);"
       >Submit</button>
     </form>
   </div>
   <div [hidden]="!submitted">
-    <h2>{{ sampleRoom }} been added!</h2>
+    <h2>{{ roomName }} been added!</h2>
   </div>
 </div>
 
