@@ -2,7 +2,7 @@
   <h1>All Furnitures</h1>
   <ul class="list">
     <li *ngFor="let furniture of furnitures">
-      <a routerLink="/detail/{{furniture.id}}">
+      <a routerLink="/furniture/{{furniture.id}}">
         <span class="form-control">
           {{furniture.id}} {{furniture.name}}
         </span>

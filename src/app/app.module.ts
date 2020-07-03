@@ -13,6 +13,7 @@ import { FurnitureCreateComponent } from './furniture-create/furniture-create.co
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -39,6 +41,7 @@ import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.co
       {path: 'rooms', component: RoomsComponent},
       {path: 'furnitures', component: FurnituresComponent},
       {path: 'room_create', component: RoomCreateComponent},
+      {path: 'furniture/:id', component: FurnitureDetailComponent },
       {path: 'furniture_create', component: FurnitureCreateComponent},
       {path: '', redirectTo: '/rooms', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
