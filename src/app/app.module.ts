@@ -36,11 +36,11 @@ import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.co
     ),
     FormsModule,
     RouterModule.forRoot([
-      {path: 'room', component: RoomsComponent},
-      {path: 'furniture', component: FurnituresComponent},
+      {path: 'rooms', component: RoomsComponent},
+      {path: 'furnitures', component: FurnituresComponent},
       {path: 'room_create', component: RoomCreateComponent},
       {path: 'furniture_create', component: FurnitureCreateComponent},
-      {path: '', redirectTo: '/room', pathMatch: 'full'},
+      {path: '', redirectTo: '/rooms', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
