@@ -2,7 +2,7 @@
   <h1>All Rooms</h1>
   <ul class="list">
     <li *ngFor="let room of rooms">
-      <a routerLink="/detail/{{room.id}}">
+      <a routerLink="/room/{{room.id}}">
         <span class="form-control">
           {{room.id}} {{room.name}}
         </span>
