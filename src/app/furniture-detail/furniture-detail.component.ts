@@ -39,11 +39,7 @@ export class FurnitureDetailComponent implements OnInit {
       .subscribe(rooms => this.rooms = rooms);
   }
 
-  update(name: string): void {
-    name = name.trim();
-    if (!name) {
-      return;
-    }
+  update(): void {
     this.furnitureService.updateFurniture(this.furniture).subscribe();
   }
 

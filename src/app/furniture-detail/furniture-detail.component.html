@@ -21,14 +21,12 @@
             <option *ngFor="let room of rooms" [value]="room.id">{{room.name}}</option>
           </select>
         </div>
+
         <button type="submit" class="btn btn-success" [disabled]="!furnitureForm.form.valid"
-                (click)="update(furniture.name);">
-          Submit
-        </button>
-        |
+                (click)="update();">
+          Submit</button> |
         <button type="cancel" class="btn btn-default"><a routerLink="/furniture">
-          Cancel</a></button>
-        |
+          Cancel</a></button> |
         <button type="delete" class="btn btn-danger" (click)="delete(furniture.id);">
           Delete
         </button>
