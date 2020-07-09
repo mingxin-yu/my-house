@@ -40,6 +40,12 @@ export class FurnitureService {
     );
   }
 
+  getFurnituresByRoomId(roomId: number): Observable<Furniture[]>{
+    const url = `${FurnitureService.FURNITURES_URL}/?roomId=${roomId}`;
+    return this.http.get<Furniture[]>(url).pipe(
+      catchError(this.handleError<Furniture[]>('getFurnituresByRoomId')));
+  }
+
   addFurniture(furniture: Furniture): Observable<Furniture> {
     return this.http.post<Furniture>(FurnitureService.FURNITURES_URL, furniture, this.httpOptions).pipe(
       catchError(this.handleError<Furniture>('addFurniture'))

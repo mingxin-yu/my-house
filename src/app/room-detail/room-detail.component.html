@@ -1,0 +1,49 @@
+<div class="container">
+  <div *ngIf="room !== undefined; else elseBlock">
+    <div [hidden]="submitted">
+      <h1>ID: {{room.id}} {{room.name}} </h1>
+      <form (ngSubmit)="onSubmit()" #roomForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name"
+                 required
+                 [(ngModel)]="room.name" name="name"
+                 #name="ngModel">
+          <div [hidden]="name.valid || name.pristine"
+               class="alert alert-danger">
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Furnitures Included</label>
+          <div *ngIf="furnitures !== undefined && furnitures.length == 0;">
+            <label for="name"> None </label>
+          </div>
+          <ul class="list">
+            <li *ngFor="let furniture of furnitures">
+              <span class="form-control">
+                {{furniture.id}} {{furniture.name}}
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="room.id !== 0">
+          <button type="submit" class="btn btn-success" [disabled]="!roomForm.form.valid"
+                  (click)="update();">
+            Submit</button> |
+          <button type="cancel" class="btn btn-default"><a routerLink="/rooms">
+            Cancel</a></button> |
+          <button type="delete" class="btn btn-danger" (click)="delete(room.id);">
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
+    <div [hidden]="!submitted">
+      <h2>{{ room.name }} been Changed!</h2>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

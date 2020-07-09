@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FurnitureDetailComponent } from './furniture-detail/furniture-detail.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RoomDetailComponent } from './room-detail/room-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FurnituresComponent,
     FurnitureCreateComponent,
     PageNotFoundComponent,
-    FurnitureDetailComponent
+    FurnitureDetailComponent,
+    RoomDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     RouterModule.forRoot([
       {path: 'rooms', component: RoomsComponent},
+      {path: 'room/:id', component: RoomDetailComponent },
       {path: 'furnitures', component: FurnituresComponent},
       {path: 'room_create', component: RoomCreateComponent},
       {path: 'furniture/:id', component: FurnitureDetailComponent },
